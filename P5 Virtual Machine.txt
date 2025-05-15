@@ -1,0 +1,30 @@
+P5:Find a procedure to transfer the files from one virtual machine to another virtual machine.
+
+s1-Open oracle virtualBox Manager 
+s2-click on new->give name like ubuntu->iso image(put the ubuntu file present)->enter username and password->click on finish
+
+s3-settings->advanced-> shared clipboard(bidirectional)-> drag n drop(bidirectional)
+   System-> network (tick)
+   Network-> Attached to (Bridged adapter)
+
+
+winscp(download)- transfers files from windows to virtual machine
+
+Open Ubuntu
+Open terminal
+Write following cmds
+If “su -” don’t work then use
+sudo apt-get update
+enter password
+sudo apt install openssh-server
+sudo apt install net-tools
+ifconfig
+
+Open winscp
+put inet id from below “ifconfig” in hostname
+put username and password and click login
+
+Left box will window desktop and right one is of vm 
+Drag and drop file from window to vm
+
+For output write the path of window and vm

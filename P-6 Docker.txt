@@ -1,0 +1,45 @@
+P-6: Docker containers Installing Docker Engine on EC2 instance. 
+
+Keep docker open before
+create 3 files - dockerfile, main.py, requirements.txt
+copy the code in each
+
+
+# main.py
+
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route("/")
+def index():
+    return "Hello World"
+
+if (__name__ == "__main__"):
+    app.run(port=5000, host="0.0.0.0")
+
+
+# dockerfile
+
+FROM python:3.12-slim
+
+WORKDIR /app
+
+COPY . .
+
+RUN pip install -r requirements.txt
+
+CMD ["python", "main.py"]
+
+
+# requirements.txt
+
+Flask==3.1.1
+
+# Open terminal in vscode Write following cmds
+
+pip install flask
+python main.py
+docker build -t myapp:1.0 .
+docker run -p 5000:5000 myapp:1.0
+
